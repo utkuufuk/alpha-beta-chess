@@ -3,7 +3,7 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.window.main" label="Eclipse 4 RCP Application" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.example.chess.app.partstack.sample">
-        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.part.sample" contributionURI="bundleclass://com.example.chess.app/com.example.chess.app.parts.ChessBoardPart" label="Sample Part"/>
+        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.part.chessboard" contributionURI="bundleclass://com.example.chess.app/com.example.chess.app.parts.ChessBoardPart" label="Chess Board"/>
       </children>
     </children>
   </children>
