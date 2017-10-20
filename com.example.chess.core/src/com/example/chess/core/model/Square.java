@@ -15,4 +15,9 @@ public class Square
         this.row = row;
         this.col = col;
     }
+
+    public void setPiece(Piece piece)
+    {
+        this.piece = piece;
+    }
 }
