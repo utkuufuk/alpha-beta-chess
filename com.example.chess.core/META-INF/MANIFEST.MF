@@ -5,3 +5,5 @@ Bundle-SymbolicName: com.example.chess.core
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: EXAMPLE
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.example.chess.core.model,
+ com.example.chess.core.model.piece
