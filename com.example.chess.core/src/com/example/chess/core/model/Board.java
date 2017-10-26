@@ -32,4 +32,23 @@ public class Board
     {
         return squares[row][col];
     }
+
+    public void display()
+    {
+        for (int r = Board.LENGTH - 1; r >= 0; r--)
+        {
+            for (int c = 0; c < Board.LENGTH; c++)
+            {
+                if (squares[r][c].getPiece() != null)
+                {
+                    System.out.print(squares[r][c].getPiece());
+                }
+                else
+                {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
 }

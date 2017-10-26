@@ -4,6 +4,7 @@ import com.example.chess.core.model.Army;
 import com.example.chess.core.model.Board;
 import com.example.chess.core.model.Side;
 import com.example.chess.core.model.piece.Bishop;
+import com.example.chess.core.model.piece.BlackPawn;
 import com.example.chess.core.model.piece.King;
 import com.example.chess.core.model.piece.Knight;
 import com.example.chess.core.model.piece.Queen;
@@ -35,7 +36,7 @@ public class ChessRoom
 
         for (int c = 0; c < Board.LENGTH; c++)
         {
-            blackArmy.addPiece(new WhitePawn(board.getSquare(6, c), Side.WHITE));
+            blackArmy.addPiece(new BlackPawn(board.getSquare(6, c), Side.WHITE));
         }
         blackArmy.addPiece(new Rook(board.getSquare(7, 0), Side.BLACK));
         blackArmy.addPiece(new Rook(board.getSquare(7, 7), Side.BLACK));
@@ -45,5 +46,10 @@ public class ChessRoom
         blackArmy.addPiece(new Bishop(board.getSquare(7, 5), Side.BLACK));
         blackArmy.addPiece(new King(board.getSquare(7, 4), Side.BLACK));
         blackArmy.addPiece(new Queen(board.getSquare(7, 3), Side.BLACK));
+    }
+
+    public Board getBoard()
+    {
+        return board;
     }
 }
