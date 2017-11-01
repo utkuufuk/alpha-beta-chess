@@ -25,4 +25,9 @@ public class Square
     {
         return piece;
     }
+
+    public Square getAdjacentSquare(int horizontal, int vertical)
+    {
+        return board.getSquare(horizontal + col, vertical + row);
+    }
 }

@@ -30,7 +30,7 @@ public class Board
 
     public Square getSquare(int row, int col)
     {
-        return squares[row][col];
+        return (row < 0 || row >= LENGTH || col < 0 || col >= LENGTH) ? null : squares[row][col];
     }
 
     public void display()
