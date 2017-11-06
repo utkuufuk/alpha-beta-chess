@@ -1,5 +1,6 @@
 package com.example.chess.core.model.piece;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.chess.core.model.Side;
@@ -21,7 +22,31 @@ public class Knight extends Piece
     @Override
     public List<Square> computeLegalMoves()
     {
-        // TODO Auto-generated method stub
-        return null;
+        List<Square> legalMoves = new ArrayList<Square>();
+        Square targetSquare = square.getAdjacentSquare(1, 2);
+        checkSquare(legalMoves, targetSquare);
+        targetSquare = square.getAdjacentSquare(-1, 2);
+        checkSquare(legalMoves, targetSquare);
+        targetSquare = square.getAdjacentSquare(1, -2);
+        checkSquare(legalMoves, targetSquare);
+        targetSquare = square.getAdjacentSquare(-1, -2);
+        checkSquare(legalMoves, targetSquare);
+        targetSquare = square.getAdjacentSquare(2, 1);
+        checkSquare(legalMoves, targetSquare);
+        targetSquare = square.getAdjacentSquare(-2, 1);
+        checkSquare(legalMoves, targetSquare);
+        targetSquare = square.getAdjacentSquare(2, -1);
+        checkSquare(legalMoves, targetSquare);
+        targetSquare = square.getAdjacentSquare(-2, -1);
+        checkSquare(legalMoves, targetSquare);
+        return legalMoves;
+    }
+
+    private void checkSquare(List<Square> legalMoves, Square targetSquare)
+    {
+        if (targetSquare != null && (targetSquare.getPiece() == null || targetSquare.getPiece().side != side))
+        {
+            legalMoves.add(targetSquare);
+        }
     }
 }

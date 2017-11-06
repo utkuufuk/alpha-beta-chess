@@ -8,7 +8,7 @@ import com.example.chess.core.model.Square;
 public abstract class Piece
 {
     private final int score;
-    private Square square;
+    protected Square square;
     protected final Side side;
     
     public abstract List<Square> computeLegalMoves();
