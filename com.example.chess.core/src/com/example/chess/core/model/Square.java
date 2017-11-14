@@ -30,4 +30,9 @@ public class Square
     {
         return board.getSquare(horizontal + col, vertical + row);
     }
+
+    public int getRow()
+    {
+        return row;
+    }
 }
