@@ -31,13 +31,13 @@ public class ChessBoardPart
 
 	    for (int r = 0; r < Board.LENGTH; r++)
 	    {
-	        for (int c = 0; c < Board.LENGTH; c++)
-	        {
-	            squares[r][c] = new Label(parent, SWT.BORDER);
-	            squares[r][c].setLayoutData(gridData);
+            for (int c = 0; c < Board.LENGTH; c++)
+            {
+                squares[r][c] = new Label(parent, SWT.BORDER);
+                squares[r][c].setLayoutData(gridData);
                 squares[r][c].setData(chessRoom.getBoard().getSquare(r, c));
-                squares[r][c].setText("Square");
-	        }
+                squares[r][c].setText(squares[r][c].getData().toString());
+            }
 	    }
 	}
 
