@@ -3,6 +3,7 @@ package com.example.chess.core.model.piece;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.chess.core.icon.IconHandler;
 import com.example.chess.core.model.Side;
 import com.example.chess.core.model.Square;
 
@@ -10,7 +11,7 @@ public class Rook extends Piece
 {
     public Rook(Square square, Side side)
     {
-        super(square, side, 5);
+        super(square, side, 5, IconHandler.getIcon("Rook", side));
     }
 
     @Override

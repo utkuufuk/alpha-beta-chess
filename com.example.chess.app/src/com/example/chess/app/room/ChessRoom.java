@@ -36,7 +36,7 @@ public class ChessRoom
 
         for (int c = 0; c < Board.LENGTH; c++)
         {
-            blackArmy.addPiece(new BlackPawn(board.getSquare(6, c), Side.WHITE));
+            blackArmy.addPiece(new BlackPawn(board.getSquare(6, c), Side.BLACK));
         }
         blackArmy.addPiece(new Rook(board.getSquare(7, 0), Side.BLACK));
         blackArmy.addPiece(new Rook(board.getSquare(7, 7), Side.BLACK));

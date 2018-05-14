@@ -3,6 +3,7 @@ package com.example.chess.core.model.piece;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.chess.core.icon.IconHandler;
 import com.example.chess.core.model.Side;
 import com.example.chess.core.model.Square;
 
@@ -10,7 +11,7 @@ public class WhitePawn extends Piece
 {
     public WhitePawn(Square square, Side side)
     {
-        super(square, side, 1);
+        super(square, side, 1, IconHandler.getIcon("Pawn", side));
     }
 
     @Override

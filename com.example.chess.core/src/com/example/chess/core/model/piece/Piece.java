@@ -3,6 +3,8 @@ package com.example.chess.core.model.piece;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.swt.graphics.Image;
+
 import com.example.chess.core.model.Side;
 import com.example.chess.core.model.Square;
 
@@ -11,15 +13,17 @@ public abstract class Piece
     private final int score;
     protected Square square;
     protected final Side side;
+    protected final Image icon;
     
     public abstract List<Square> computeLegalMoves();
 
-    protected Piece(Square square, Side side, int score)
+    protected Piece(Square square, Side side, int score, Image icon)
     {
         this.square = square;
         this.square.setPiece(this);
         this.score = score;
         this.side = side;
+        this.icon = icon;
     }
 
     public void setSquare(Square square)
@@ -30,6 +34,11 @@ public abstract class Piece
     public Square getSquare()
     {
         return square;
+    }
+
+    public Image getIcon()
+    {
+        return icon;
     }
 
     protected void checkSquare(List<Square> legalMoves, Square targetSquare)

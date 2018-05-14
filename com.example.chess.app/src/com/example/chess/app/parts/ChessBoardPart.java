@@ -10,7 +10,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
 import com.example.chess.app.room.ChessRoom;
+import com.example.chess.core.icon.IconHandler;
 import com.example.chess.core.model.Board;
+import com.example.chess.core.model.Square;
+import com.example.chess.core.model.piece.Piece;
 
 public class ChessBoardPart
 {
@@ -31,7 +34,7 @@ public class ChessBoardPart
         GridData tagGridData = new GridData(SWT.CENTER, SWT.CENTER, true, false);
         GridData squareGridData = new GridData(SWT.FILL, SWT.CENTER, true, false);
 
-        for (int r = 0; r < Board.LENGTH; r++)
+        for (int r = Board.LENGTH - 1; r >= 0; r--)
         {
             squares[r][0] = new Label(parent, SWT.NONE);
             squares[r][0].setLayoutData(tagGridData);
@@ -42,7 +45,17 @@ public class ChessBoardPart
                 squares[r][c] = new Label(parent, SWT.BORDER);
                 squares[r][c].setLayoutData(squareGridData);
                 squares[r][c].setData(chessRoom.getBoard().getSquare(r, c));
-                squares[r][c].setText(squares[r][c].getData().toString().substring(35));
+
+                Piece piece = ((Square) squares[r][c].getData()).getPiece();
+
+                if (piece == null)
+                {
+                    squares[r][c].setImage(IconHandler.getBlankIcon());
+                }
+                else
+                {
+                    squares[r][c].setImage(piece.getIcon());
+                }
             }
         }
         new Label(parent, SWT.NONE);
