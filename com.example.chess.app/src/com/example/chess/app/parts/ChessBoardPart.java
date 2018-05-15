@@ -7,6 +7,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 
 import com.example.chess.app.room.ChessRoom;
@@ -42,20 +43,9 @@ public class ChessBoardPart
 
             for (int c = 0; c < Board.LENGTH; c++)
             {
-                squares[r][c] = new Label(parent, SWT.BORDER);
-                squares[r][c].setLayoutData(squareGridData);
-                squares[r][c].setData(chessRoom.getBoard().getSquare(r, c));
-
-                Piece piece = ((Square) squares[r][c].getData()).getPiece();
-
-                if (piece == null)
-                {
-                    squares[r][c].setImage(IconHandler.getBlankIcon());
-                }
-                else
-                {
-                    squares[r][c].setImage(piece.getIcon());
-                }
+                squares[r][c + 1] = new Label(parent, SWT.BORDER);
+                squares[r][c + 1].setLayoutData(squareGridData);
+                squares[r][c + 1].setData(chessRoom.getBoard().getSquare(r, c));
             }
         }
         new Label(parent, SWT.NONE);
@@ -66,11 +56,36 @@ public class ChessBoardPart
             squares[Board.LENGTH][c + 1].setText(COL_LETTERS[c]);
             squares[Board.LENGTH][c + 1].setLayoutData(tagGridData);
         }
+        setFocus();
     }
 
     @Focus
     public void setFocus()
     {
+        for (int r = Board.LENGTH - 1; r >= 0; r--)
+        {
+            for (int c = 0; c < Board.LENGTH; c++)
+            {
+                if ((r + c) % 2 == 0)
+                {
+                    squares[r][c + 1].setBackground(Display.getDefault().getSystemColor(SWT.COLOR_DARK_GRAY));
+                }
+                else
+                {
+                    squares[r][c + 1].setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
+                }
 
+                Piece piece = ((Square) squares[r][c + 1].getData()).getPiece();
+
+                if (piece == null)
+                {
+                    squares[r][c + 1].setImage(IconHandler.getBlankIcon());
+                }
+                else
+                {
+                    squares[r][c + 1].setImage(piece.getIcon());
+                }
+            }
+        }
     }
 }
