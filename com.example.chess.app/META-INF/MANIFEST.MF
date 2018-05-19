@@ -17,4 +17,5 @@ Require-Bundle: javax.inject;bundle-version="0.0.0",
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.example.chess.core.icon,
  com.example.chess.core.model,
- com.example.chess.core.model.piece
+ com.example.chess.core.model.piece,
+ com.example.chess.player

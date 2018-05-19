@@ -12,8 +12,8 @@ import com.example.chess.core.model.piece.Piece;
 
 public class ChessPlayer
 {
-    private Board board;
-    private Side side;
+    protected Board board;
+    protected Side side;
 
     public ChessPlayer(Board board, Side side)
     {
@@ -53,5 +53,11 @@ public class ChessPlayer
             }
         }
         return legalMoves;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "USER";
     }
 }

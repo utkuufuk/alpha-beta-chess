@@ -1,5 +1,8 @@
 package com.example.chess.app.room;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.example.chess.core.model.Army;
 import com.example.chess.core.model.Board;
 import com.example.chess.core.model.Side;
@@ -10,10 +13,12 @@ import com.example.chess.core.model.piece.Knight;
 import com.example.chess.core.model.piece.Queen;
 import com.example.chess.core.model.piece.Rook;
 import com.example.chess.core.model.piece.WhitePawn;
+import com.example.chess.player.ChessPlayer;
 
 public class ChessRoom
 {
     private final Board board;
+    private final Map<Side, ChessPlayer> players;
 
     public ChessRoom()
     {
@@ -46,10 +51,19 @@ public class ChessRoom
         blackArmy.addPiece(new Bishop(board.getSquare(7, 5), Side.BLACK));
         blackArmy.addPiece(new King(board.getSquare(7, 4), Side.BLACK));
         blackArmy.addPiece(new Queen(board.getSquare(7, 3), Side.BLACK));
+
+        players = new HashMap<Side, ChessPlayer>();
+        players.put(Side.WHITE, new ChessPlayer(board, Side.WHITE));
+        players.put(Side.BLACK, new ChessPlayer(board, Side.BLACK));
     }
 
     public Board getBoard()
     {
         return board;
+    }
+
+    public ChessPlayer getPlayer(Side side)
+    {
+        return players.get(side);
     }
 }

@@ -7,3 +7,4 @@ Bundle-Vendor: EXAMPLE
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.example.chess.core.model,
  com.example.chess.core.model.piece
+Export-Package: com.example.chess.player
