@@ -10,6 +10,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 
+import com.example.chess.app.listener.ChessMoveListener;
 import com.example.chess.app.room.ChessRoom;
 import com.example.chess.core.icon.IconHandler;
 import com.example.chess.core.model.Board;
@@ -46,6 +47,7 @@ public class ChessBoardPart
                 squares[r][c + 1] = new Label(parent, SWT.BORDER);
                 squares[r][c + 1].setLayoutData(squareGridData);
                 squares[r][c + 1].setData(chessRoom.getBoard().getSquare(r, c));
+                squares[r][c + 1].addMouseListener(new ChessMoveListener(squares[r][c + 1]));
             }
         }
         new Label(parent, SWT.NONE);
@@ -73,6 +75,11 @@ public class ChessBoardPart
                 else
                 {
                     squares[r][c + 1].setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
+                }
+
+                if (((Square) squares[r][c + 1].getData()).isLegal())
+                {
+                    squares[r][c + 1].setBackground(Display.getDefault().getSystemColor(SWT.COLOR_BLUE));
                 }
 
                 Piece piece = ((Square) squares[r][c + 1].getData()).getPiece();

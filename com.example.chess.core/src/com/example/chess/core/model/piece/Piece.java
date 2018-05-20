@@ -41,6 +41,11 @@ public abstract class Piece
         return icon;
     }
 
+    public Side getSide()
+    {
+        return side;
+    }
+
     protected void checkSquare(List<Square> legalMoves, Square targetSquare)
     {
         if (targetSquare != null && (targetSquare.getPiece() == null || targetSquare.getPiece().side != side))

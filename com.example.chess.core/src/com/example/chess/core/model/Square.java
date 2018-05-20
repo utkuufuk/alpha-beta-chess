@@ -7,6 +7,7 @@ public class Square
     private final Board board;
     private final int row;
     private final int col;
+    private boolean legal;
     private Piece piece;
 
     public Square(Board board, int row, int col)
@@ -34,5 +35,15 @@ public class Square
     public int getRow()
     {
         return row;
+    }
+
+    public void setLegal(boolean legal)
+    {
+        this.legal = legal;
+    }
+
+    public boolean isLegal()
+    {
+        return legal;
     }
 }
