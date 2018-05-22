@@ -29,7 +29,7 @@ public class Square
 
     public Square getAdjacentSquare(int horizontal, int vertical)
     {
-        return board.getSquare(horizontal + col, vertical + row);
+        return board.getSquare(vertical + row, horizontal + col);
     }
 
     public int getRow()
@@ -45,5 +45,11 @@ public class Square
     public boolean isLegal()
     {
         return legal;
+    }
+
+    @Override
+    public String toString()
+    {
+        return String.format("%s%s", (char) ('A' + col), (1 + row));
     }
 }

@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -20,7 +21,7 @@ import com.example.chess.core.model.piece.Piece;
 public class ChessBoardPart
 {
     private static final String[] COL_LETTERS = {"A", "B", "C", "D", "E", "F", "G", "H"};
-    private ChessRoom chessRoom;
+    private static ChessRoom chessRoom;
     private Label[][] squares;
 
     public ChessBoardPart()
@@ -59,6 +60,7 @@ public class ChessBoardPart
             squares[Board.LENGTH][c + 1].setLayoutData(tagGridData);
         }
         setFocus();
+        PartRefresher.setChessBoardPart(this);
     }
 
     @Focus
@@ -79,7 +81,7 @@ public class ChessBoardPart
 
                 if (((Square) squares[r][c + 1].getData()).isLegal())
                 {
-                    squares[r][c + 1].setBackground(Display.getDefault().getSystemColor(SWT.COLOR_BLUE));
+                    squares[r][c + 1].setBackground(new Color(Display.getDefault(), 145, 185, 255));
                 }
 
                 Piece piece = ((Square) squares[r][c + 1].getData()).getPiece();
@@ -94,5 +96,10 @@ public class ChessBoardPart
                 }
             }
         }
+    }
+
+    public static ChessRoom getChessRoom()
+    {
+        return chessRoom;
     }
 }
