@@ -7,19 +7,24 @@ import org.eclipse.swt.widgets.Label;
 import com.example.chess.app.parts.ChessBoardPart;
 import com.example.chess.app.parts.PartRefresher;
 import com.example.chess.core.model.Board;
+import com.example.chess.core.model.ChessMove;
 import com.example.chess.core.model.Side;
 import com.example.chess.core.model.Square;
 import com.example.chess.core.model.piece.Piece;
+import com.example.chess.player.ChessPlayer;
 
 public class ChessMoveListener implements MouseListener
 {
     private final Label label;
     private static Piece selectedPiece;
     private static boolean doubleClicked;
+    private static ChessPlayer whitePlayer, blackPlayer;
 
     public ChessMoveListener(Label label)
     {
         this.label = label;
+        whitePlayer = ChessBoardPart.getChessRoom().getPlayer(Side.WHITE);
+        blackPlayer = ChessBoardPart.getChessRoom().getPlayer(Side.BLACK);
     }
 
     @Override
@@ -42,7 +47,20 @@ public class ChessMoveListener implements MouseListener
     @Override
     public void mouseDown(MouseEvent e)
     {
-        
+        if (doubleClicked)
+        {
+            Square targetSquare = (Square) label.getData();
+
+            if (targetSquare.isLegal())
+            {
+                Square initialSquare = selectedPiece.getSquare();
+                Piece targetPiece = targetSquare.getPiece();
+                ChessMove move = new ChessMove(initialSquare, targetSquare, targetPiece);
+                whitePlayer.makeMove(move);
+            }
+            doubleClicked = false;
+            resetLegalSquares();
+        }
     }
 
     @Override
