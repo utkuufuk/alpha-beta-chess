@@ -36,7 +36,6 @@ public class RandomPlayer extends ChessPlayer
 
         int randomMoveIndex = random.nextInt(legalMoves.size());
         Square targetSquare = legalMoves.get(randomMoveIndex);
-
         return new ChessMove(randomPiece.getSquare(), targetSquare, targetSquare.getPiece());
     }
 

@@ -16,6 +16,7 @@ import com.example.chess.player.ChessPlayer;
 public class ChessMoveListener implements MouseListener
 {
     private final Label label;
+    private static Side side;
     private static Piece selectedPiece;
     private static boolean doubleClicked;
     private static ChessPlayer whitePlayer, blackPlayer;
@@ -23,6 +24,7 @@ public class ChessMoveListener implements MouseListener
     public ChessMoveListener(Label label)
     {
         this.label = label;
+        side = Side.WHITE;
         whitePlayer = ChessBoardPart.getChessRoom().getPlayer(Side.WHITE);
         blackPlayer = ChessBoardPart.getChessRoom().getPlayer(Side.BLACK);
     }
@@ -57,9 +59,16 @@ public class ChessMoveListener implements MouseListener
                 Piece targetPiece = targetSquare.getPiece();
                 ChessMove move = new ChessMove(initialSquare, targetSquare, targetPiece);
                 whitePlayer.makeMove(move);
+                side = side.opposite();
             }
             doubleClicked = false;
             resetLegalSquares();
+        }
+        else if (side == Side.BLACK)
+        {
+            ChessMove move = blackPlayer.decideMove();
+            blackPlayer.makeMove(move);
+            side = side.opposite();
         }
     }
 

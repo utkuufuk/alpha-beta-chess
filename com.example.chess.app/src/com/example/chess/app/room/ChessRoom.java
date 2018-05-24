@@ -14,6 +14,7 @@ import com.example.chess.core.model.piece.Queen;
 import com.example.chess.core.model.piece.Rook;
 import com.example.chess.core.model.piece.WhitePawn;
 import com.example.chess.player.ChessPlayer;
+import com.example.chess.player.RandomPlayer;
 
 public class ChessRoom
 {
@@ -54,7 +55,7 @@ public class ChessRoom
 
         players = new HashMap<Side, ChessPlayer>();
         players.put(Side.WHITE, new ChessPlayer(board, Side.WHITE));
-        players.put(Side.BLACK, new ChessPlayer(board, Side.BLACK));
+        players.put(Side.BLACK, new RandomPlayer(board, Side.BLACK));
     }
 
     public Board getBoard()
