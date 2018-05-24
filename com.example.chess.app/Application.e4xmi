@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.window.main" label="Eclipse 4 RCP Application" width="500" height="550">
-    <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.partsashcontainer.sample">
-      <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.example.chess.app.partstack.sample">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.window.main" label="Eclipse 4 RCP Application" width="775" height="550">
+    <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.partsashcontainer.sample" horizontal="true">
+      <children xsi:type="basic:PartStack" xmi:id="_yqyMEF-dEeiisdB0w0Hmpw" elementId="com.example.chess.app.partstack.graveyard.white" containerData="2">
+        <children xsi:type="basic:Part" xmi:id="_3DM90F-dEeiisdB0w0Hmpw" elementId="com.example.chess.app.part.graveyard.white" contributionURI="bundleclass://com.example.chess.app/com.example.chess.app.parts.WhiteGraveyardPart"/>
+      </children>
+      <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.example.chess.app.partstack.sample" containerData="8">
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.example.chess.app.part.chessboard" contributionURI="bundleclass://com.example.chess.app/com.example.chess.app.parts.ChessBoardPart" label="Chess Board"/>
+      </children>
+      <children xsi:type="basic:PartStack" xmi:id="_zC0RkF-dEeiisdB0w0Hmpw" elementId="com.example.chess.app.partstack.graveyard.black" containerData="2">
+        <children xsi:type="basic:Part" xmi:id="_3X-7AF-dEeiisdB0w0Hmpw" elementId="com.example.chess.app.part.graveyard.black" contributionURI="bundleclass://com.example.chess.app/com.example.chess.app.parts.BlackGraveyardPart"/>
       </children>
     </children>
   </children>
