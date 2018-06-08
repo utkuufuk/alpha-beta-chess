@@ -41,6 +41,11 @@ public abstract class Piece
         return icon;
     }
 
+    public int getScore()
+    {
+        return score;
+    }
+
     public Side getSide()
     {
         return side;

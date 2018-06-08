@@ -1,5 +1,7 @@
 package com.example.chess.core.model;
 
+import com.example.chess.core.model.piece.Piece;
+
 public class Board
 {
     public static final int LENGTH = 8;
@@ -31,6 +33,23 @@ public class Board
     public Square getSquare(int row, int col)
     {
         return (row < 0 || row >= LENGTH || col < 0 || col >= LENGTH) ? null : squares[row][col];
+    }
+
+    public int computeRating(Side side)
+    {
+        int whiteScore = 0;
+        int blackScore = 0;
+        
+        for (Piece p : whiteArmy.getAlivePieces())
+        {
+            whiteScore += p.getScore();
+        }
+
+        for (Piece p : blackArmy.getAlivePieces())
+        {
+            blackScore += p.getScore();
+        }
+        return side == Side.BLACK ? blackScore - whiteScore : whiteScore - blackScore;
     }
 
     public void display()

@@ -20,6 +20,7 @@ public class ChessMoveListener implements MouseListener
     private static Piece selectedPiece;
     private static boolean doubleClicked;
     private static ChessPlayer whitePlayer, blackPlayer;
+    private static Board board;
 
     public ChessMoveListener(Label label)
     {
@@ -27,6 +28,7 @@ public class ChessMoveListener implements MouseListener
         side = Side.WHITE;
         whitePlayer = ChessBoardPart.getChessRoom().getPlayer(Side.WHITE);
         blackPlayer = ChessBoardPart.getChessRoom().getPlayer(Side.BLACK);
+        board = ChessBoardPart.getChessRoom().getBoard();
     }
 
     @Override
@@ -69,6 +71,7 @@ public class ChessMoveListener implements MouseListener
             ChessMove move = blackPlayer.decideMove();
             blackPlayer.makeMove(move);
             side = side.opposite();
+            System.out.println("White Rating: " + board.computeRating(Side.WHITE));
         }
     }
 
@@ -84,7 +87,7 @@ public class ChessMoveListener implements MouseListener
         {
             for (int c = 0; c < Board.LENGTH; c++)
             {
-                ChessBoardPart.getChessRoom().getBoard().getSquare(r, c).setLegal(false);
+                board.getSquare(r, c).setLegal(false);
             }
         }
     }
