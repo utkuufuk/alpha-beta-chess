@@ -39,6 +39,26 @@ public class ChessPlayer
         move.getInitialSquare().setPiece(null);
     }
 
+    public void undoMove(ChessMove move)
+    {
+        Square initialSquare = move.getInitialSquare();
+        Square targetSquare = move.getTargetSquare();
+        Piece targetPiece = move.getTargetPiece();
+        Piece movingPiece = targetSquare.getPiece();
+
+        movingPiece.setSquare(initialSquare);
+        initialSquare.setPiece(movingPiece);
+        targetSquare.setPiece(null);
+
+        if (targetPiece != null)
+        {
+            targetPiece.setSquare(targetSquare);
+            targetSquare.setPiece(targetPiece);
+            Army oppponentArmy = board.getArmy(side.opposite());
+            oppponentArmy.revivePiece(targetPiece);
+        }
+    }
+
     public List<ChessMove> computeAllLegalMoves()
     {
         List<Piece> alivePieces = board.getArmy(side).getAlivePieces();
