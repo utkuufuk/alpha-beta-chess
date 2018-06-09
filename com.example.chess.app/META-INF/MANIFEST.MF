@@ -19,3 +19,4 @@ Import-Package: com.example.chess.core.icon,
  com.example.chess.core.model,
  com.example.chess.core.model.piece,
  com.example.chess.player
+Automatic-Module-Name: com.example.chess.app
