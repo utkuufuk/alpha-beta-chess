@@ -71,7 +71,6 @@ public class ChessMoveListener implements MouseListener
             ChessMove move = blackPlayer.decideMove();
             blackPlayer.makeMove(move);
             side = side.opposite();
-            System.out.println("White Rating: " + board.computeRating(Side.WHITE));
         }
     }
 

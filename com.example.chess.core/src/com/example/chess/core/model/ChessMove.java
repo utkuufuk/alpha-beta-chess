@@ -44,4 +44,10 @@ public class ChessMove
     {
         this.targetPiece = targetPiece;
     }
+
+    @Override
+    public String toString()
+    {
+        return initialSquare.getPiece() + ": " + initialSquare + " -> " + targetSquare;
+    }
 }

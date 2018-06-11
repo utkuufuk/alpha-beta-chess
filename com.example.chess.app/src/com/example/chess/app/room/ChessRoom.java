@@ -55,7 +55,6 @@ public class ChessRoom
 
         players = new HashMap<Side, ChessPlayer>();
         players.put(Side.WHITE, new ChessPlayer(board, Side.WHITE));
-//        players.put(Side.BLACK, new RandomPlayer(board, Side.BLACK));
         players.put(Side.BLACK, new AlphaBetaPlayer(board, Side.BLACK));
     }
 
