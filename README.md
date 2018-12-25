@@ -1,5 +1,5 @@
 ## alpha-beta-chess
-A nice looking and challenging chess game based on Eclipse RCP.
+A chess game built with Eclipse RCP.
 
 ![Alpha-Beta Chess](chess.png)
 
@@ -12,7 +12,4 @@ A nice looking and challenging chess game based on Eclipse RCP.
  * Makes its moves according to the alpha-beta pruning algorithm reinforced with iterative deepening.
  * Has a fixed amount of time to make a move each turn. 
  * Starts with a search depth of 5. Constantly increments the depth and restarts the search as long as there is time remaining.
- * Remembers the best move it found on the previous search. If time runs out during the current search, makes that move immediately. 
- 
-#### Target Platform Settings In Linux
-In Eclipse go to `Window->Plug-in Development->Target Platform->Add` and select *Default*.
+ * Remembers the best move it found on the previous search. If time runs out during the current search, makes that move immediately.
