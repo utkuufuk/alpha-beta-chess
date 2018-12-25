@@ -3,6 +3,9 @@ A chess game built with Eclipse RCP.
 
 ![Alpha-Beta Chess](chess.png)
 
+### Development Walkthrough
+Check out [this YouTube playlist](https://www.youtube.com/playlist?list=PL36SguL4LIwmhgHkziX-2C91SOTQl1rEL) to see how this app has been built step by step.
+
 ### Controls
  * Double-click on a piece you control. This highlights the squares that the piece is allowed to move.
  * Left-click one of the highlighted squares to move the selected piece. Now it's the AI's turn.
